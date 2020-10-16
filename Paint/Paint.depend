@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1602881354 source:c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\src\circulo.cpp
+	"Circulo.h"
+
+1602881072 c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\include\circulo.h
+
+1602885588 source:c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\src\curva.cpp
+	"Curva.h"
+
+1602885589 c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\include\curva.h
+
+1602878666 source:c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\src\linea.cpp
+	"Linea.h"
+
+1602878715 c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\include\linea.h
+
+1602394769 source:c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\src\poligono.cpp
+	"Poligono.h"
+
+1602394769 c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\include\poligono.h
+
+1602881488 source:c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\src\rectangulo.cpp
+	"Rectangulo.h"
+
+1602881489 c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\include\rectangulo.h
+
+1602883193 source:c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\src\triangulo.cpp
+	"Triangulo.h"
+
+1602881910 c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\include\triangulo.h
+
+1602882212 source:c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\main.cpp
+	<allegro.h>
+	<math.h>
+	"Menu.h"
+	"Linea.h"
+	"Circulo.h"
+	"Rectangulo.h"
+	"Triangulo.h"
+	"Pentagono.h"
+	"Curva.h"
+
+1602479901 source:c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\src\menu.cpp
+	"Menu.h"
+	"Allegro.h"
+
+1602457626 c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\include\menu.h
+
+1602885586 source:c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\src\pentagono.cpp
+	"Pentagono.h"
+
+1602885587 c:\users\usuario\desktop\proyectos de programacion\pain a clase\pain clase\paint\include\pentagono.h
+
