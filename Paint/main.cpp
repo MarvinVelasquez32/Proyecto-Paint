@@ -189,8 +189,18 @@ void Imprimir_En_Dibujo(){
            if (Imprimir == true) {
                 Imprimir = false;
 
-                int Radio = int(sqrt( ((Anclaje_x-mouse_x)*(Anclaje_x-mouse_x)) + ((Anclaje_y-mouse_y)*(Anclaje_y-mouse_y)) ));
-                circle(dibujo, Anclaje_x, Anclaje_y, Radio, Codigo_De_Color);
+                /*-----------------------------CREAR OBJETO CIRCULO------------------------------*/
+                Circulo Objeto_Circulo = Circulo(Anclaje_x, Anclaje_y, mouse_x, mouse_y, Codigo_De_Color);
+                /*-----------------------------CREAR OBJETO CIRCULO------------------------------*/
+
+                /*-----------------------------CREAR EL RADIO PROPORCIONAL AL MAUS------------------------------*/
+                int Radio = int (sqrt( ((Objeto_Circulo.An_x-Objeto_Circulo.M_x)*(Objeto_Circulo.An_x-Objeto_Circulo.M_x))
+                + ((Objeto_Circulo.An_y-Objeto_Circulo.M_y)*(Objeto_Circulo.An_y-Objeto_Circulo.M_y)) ));
+                /*-----------------------------CREAR EL RADIO PROPORCIONAL AL MAUS------------------------------*/
+
+                /*-----------------------------IMPPRIMIR PROCESOS CIRCULO------------------------------*/
+                circle(dibujo, Objeto_Circulo.An_x, Objeto_Circulo.An_y, Radio, Objeto_Circulo.Codigo_De_Color);
+                /*-----------------------------IMPPRIMIR PROCESOS CIRCULO------------------------------*/
             }
 
         break;
@@ -200,7 +210,14 @@ void Imprimir_En_Dibujo(){
            if (Imprimir == true) {
                 Imprimir = false;
 
-                rect( dibujo, Anclaje_x, Anclaje_y, mouse_x, mouse_y, Codigo_De_Color);
+                /*-----------------------------CREAR OBJETO RECTANGULO------------------------------*/
+                Rectangulo Objeto_Rectangulo = Rectangulo(Anclaje_x, Anclaje_y, mouse_x, mouse_y, Codigo_De_Color);
+                /*-----------------------------CREAR OBJETO RECTANGULO------------------------------*/
+
+                /*-----------------------------IMPRIMIR PROCESOS RECTANGULO------------------------------*/
+                rect (dibujo, Objeto_Rectangulo.An_x, Objeto_Rectangulo.An_y, Objeto_Rectangulo.M_x,
+                Objeto_Rectangulo.M_y, Objeto_Rectangulo.Codigo_De_Color);
+                /*-----------------------------IMPRIMIR PROCESOS RECTANGULO------------------------------*/
             }
 
         break;
@@ -210,9 +227,22 @@ void Imprimir_En_Dibujo(){
            if (Imprimir == true) {
                 Imprimir = false;
 
-                line(dibujo, Anclaje_x, Anclaje_y, mouse_x, mouse_y, Codigo_De_Color);
-                line(dibujo, Anclaje_x, Anclaje_y, Anclaje_x + (mouse_y-Anclaje_y), Anclaje_y, Codigo_De_Color);
-                line(dibujo, mouse_x, mouse_y, Anclaje_x + (mouse_y-Anclaje_y), Anclaje_y, Codigo_De_Color);
+                /*-----------------------------CREAR OBJETO RECTANGULO------------------------------*/
+                Triangulo Objeto_Triangulo = Triangulo(Anclaje_x, Anclaje_y, mouse_x, mouse_y, Codigo_De_Color);
+                /*-----------------------------CREAR OBJETO RECTANGULO------------------------------*/
+
+                /*---------------------------------------PRIMERA LINEA---------------------------------------*/
+                line(dibujo, Objeto_Triangulo.An_x, Objeto_Triangulo.An_y, Objeto_Triangulo.M_x,
+                Objeto_Triangulo.M_y, Objeto_Triangulo.Codigo_De_Color);
+                /*---------------------------------------PRIMERA LINEA---------------------------------------*/
+                /*---------------------------------------SEGINDA LINEA---------------------------------------*/
+                line(dibujo, Objeto_Triangulo.An_x, Objeto_Triangulo.An_y, Objeto_Triangulo.An_x
+                + (Objeto_Triangulo.M_y-Objeto_Triangulo.An_y), Objeto_Triangulo.An_y, Objeto_Triangulo.Codigo_De_Color);
+                /*---------------------------------------SEGUNDA LINEA---------------------------------------*/
+                /*---------------------------------------TERCERA LINEA---------------------------------------*/
+                line(dibujo, Objeto_Triangulo.M_x, Objeto_Triangulo.M_y, Objeto_Triangulo.An_x
+                + (Objeto_Triangulo.M_y-Objeto_Triangulo.An_y), Objeto_Triangulo.An_y, Objeto_Triangulo.Codigo_De_Color);
+                /*---------------------------------------TERCERA LINEA---------------------------------------*/
             }
 
         break;
@@ -222,8 +252,18 @@ void Imprimir_En_Dibujo(){
            if (Imprimir == true){
                 Imprimir = false;
 
-                int Radio_curva = int (sqrt( ((Anclaje_x-mouse_x)*(Anclaje_x-mouse_x)) + ((Anclaje_y-mouse_y)*(Anclaje_y-mouse_y)) ));
-                arc(dibujo, Anclaje_x, Anclaje_y, itofix ( 20 ) , itofix ( 108 ) , Radio_curva, Codigo_De_Color);
+                /*-----------------------------CREAR OBJETO CURVA------------------------------*/
+                Curva Objeto_Curva = Curva(Anclaje_x, Anclaje_y, mouse_x, mouse_y, Codigo_De_Color);
+                /*-----------------------------CREAR OBJETO CURVA------------------------------*/
+
+                /*-----------------------------CREAR LA CURVATURA PROPORCIONAL AL MAUS------------------------------*/
+                int Radio_curva = int (sqrt( ((Objeto_Curva.An_x-Objeto_Curva.M_x)*(Objeto_Curva.An_x-Objeto_Curva.M_x))
+                + ((Objeto_Curva.An_y-Objeto_Curva.M_y)*(Objeto_Curva.An_y-Objeto_Curva.M_y)) ));
+                /*-----------------------------CREAR LA CURVATURA PROPORCIONAL AL MAUS------------------------------*/
+
+                /*-----------------------------IMPRIMIR PROCESOS CURVA------------------------------*/
+                arc(dibujo, Objeto_Curva.An_x, Objeto_Curva.An_y, itofix(20), itofix(108), Radio_curva, Codigo_De_Color);
+                /*-----------------------------IMPRIMIR PROCESOS CURVA------------------------------*/
           };
 
         break;
@@ -233,34 +273,53 @@ void Imprimir_En_Dibujo(){
            if (Imprimir == true){
                 Imprimir = false;
 
+                /*-----------------------------CREAR OBJETO RECTANGULO------------------------------*/
+                Pentagono Objeto_Pentagono = Pentagono(Anclaje_x, Anclaje_y, mouse_x, mouse_y, Codigo_De_Color);
+                /*-----------------------------CREAR OBJETO RECTANGULO------------------------------*/
+
                 /*======================PRIMERA LINEA DEL PENTAGONO======================*/
-                line(dibujo, Anclaje_x, Anclaje_y, mouse_x, mouse_y, Codigo_De_Color);
+                line(dibujo, Objeto_Pentagono.An_x, Objeto_Pentagono.An_y, Objeto_Pentagono.M_x,
+                Objeto_Pentagono.M_y, Objeto_Pentagono.Codigo_De_Color);
                 /*======================PRIMERA LINEA DEL PENTAGONO======================*/
 
                 /*======================SEGUNDA LINEA DEL PENTAGONO======================*/
-                line(dibujo, Anclaje_x, Anclaje_y,
-                Anclaje_x - ((Anclaje_y-mouse_y)-(Anclaje_x-mouse_x)),
-                Anclaje_y, Codigo_De_Color);
+                line(dibujo, Objeto_Pentagono.An_x, Objeto_Pentagono.An_y,
+                Objeto_Pentagono.An_x - ((Objeto_Pentagono.An_y-Objeto_Pentagono.M_y)
+                -(Objeto_Pentagono.An_x-Objeto_Pentagono.M_x)),
+                Objeto_Pentagono.An_y, Objeto_Pentagono.Codigo_De_Color);
                 /*======================SEGUNDA LINEA DEL PENTAGONO======================*/
 
                 /*======================TERCERA LINEA DEL PENTAGONO======================*/
-                line(dibujo, Anclaje_x - ((Anclaje_y-mouse_y)-(Anclaje_x-mouse_x)), Anclaje_y,
-                Anclaje_x - (((Anclaje_y-mouse_y)-(Anclaje_x-mouse_x))+(mouse_x-Anclaje_x)),
-                Anclaje_y + (mouse_y-Anclaje_y), Codigo_De_Color);
+                line(dibujo, Objeto_Pentagono.An_x - ((Objeto_Pentagono.An_y-Objeto_Pentagono.M_y)
+                -(Objeto_Pentagono.An_x-Objeto_Pentagono.M_x)), Objeto_Pentagono.An_y,
+                Objeto_Pentagono.An_x - (((Objeto_Pentagono.An_y-Objeto_Pentagono.M_y)
+                -(Objeto_Pentagono.An_x-Objeto_Pentagono.M_x))+(Objeto_Pentagono.M_x-Objeto_Pentagono.An_x)),
+                Objeto_Pentagono.An_y + (Objeto_Pentagono.M_y-Objeto_Pentagono.An_y),
+                Objeto_Pentagono.Codigo_De_Color);
                 /*======================SEGUNDA LINEA DEL PENTAGONO======================*/
 
                 /*======================CUARTA LINEA DEL PENTAGONO======================*/
-                line(dibujo,Anclaje_x - (((Anclaje_y-mouse_y)-(Anclaje_x-mouse_x))
-                +(mouse_x-Anclaje_x)), Anclaje_y + (mouse_y-Anclaje_y),
-                mouse_x - (((Anclaje_y-mouse_y)-(Anclaje_x-mouse_x))
-                +(mouse_x-Anclaje_x))+(((Anclaje_y-mouse_y)-(Anclaje_x-mouse_x))/2),
-                mouse_y + (mouse_y-Anclaje_y), Codigo_De_Color);
+                line(dibujo,Objeto_Pentagono.An_x - (((Objeto_Pentagono.An_y-Objeto_Pentagono.M_y)
+                -(Objeto_Pentagono.An_x-Objeto_Pentagono.M_x))
+                +(Objeto_Pentagono.M_x-Objeto_Pentagono.An_x)), Objeto_Pentagono.An_y +
+                (Objeto_Pentagono.M_y-Objeto_Pentagono.An_y),
+                Objeto_Pentagono.M_x - (((Objeto_Pentagono.An_y-Objeto_Pentagono.M_y)
+                -(Objeto_Pentagono.An_x-Objeto_Pentagono.M_x))
+                +(Objeto_Pentagono.M_x-Objeto_Pentagono.An_x))+
+                (((Objeto_Pentagono.An_y-Objeto_Pentagono.M_y)-
+                (Objeto_Pentagono.An_x-Objeto_Pentagono.M_x))/2),
+                Objeto_Pentagono.M_y + (Objeto_Pentagono.M_y-Objeto_Pentagono.An_y),
+                Objeto_Pentagono.Codigo_De_Color);
                 /*======================CUARTA LINEA DEL PENTAGONO======================*/
 
                 /*======================QUINTA LINEA DEL PENTAGONO======================*/
-                line(dibujo, mouse_x - (((Anclaje_y-mouse_y)-(Anclaje_x-mouse_x))
-                +(mouse_x-Anclaje_x))+(((Anclaje_y-mouse_y)-(Anclaje_x-mouse_x))/2),
-                mouse_y + (mouse_y-Anclaje_y),mouse_x, mouse_y, Codigo_De_Color);
+                line(dibujo, Objeto_Pentagono.M_x - (((Objeto_Pentagono.An_y-Objeto_Pentagono.M_y)
+                -(Objeto_Pentagono.An_x-Objeto_Pentagono.M_x))
+                +(Objeto_Pentagono.M_x-Objeto_Pentagono.An_x))+
+                (((Objeto_Pentagono.An_y-Objeto_Pentagono.M_y)
+                -(Objeto_Pentagono.An_x-Objeto_Pentagono.M_x))/2),
+                Objeto_Pentagono.M_y + (Objeto_Pentagono.M_y-Objeto_Pentagono.An_y),
+                Objeto_Pentagono.M_x, Objeto_Pentagono.M_y, Objeto_Pentagono.Codigo_De_Color);
                 /*======================QUINTA LINEA DEL PENTAGONO======================*/
           };
 
